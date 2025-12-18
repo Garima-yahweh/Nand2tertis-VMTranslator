@@ -1,87 +1,97 @@
-Nand2Tetris VM Translator
-Overview
+# Nand2Tetris VM Translator
 
-This project is a VM Translator built as part of the Nand2Tetris course. The program converts Virtual Machine (VM) code into Hack assembly language so that VM programs can run on the Hack computer.
+## 📌 Overview
 
-The entire translator is written in a single C++ file and supports translating both a single .vm file and a directory containing multiple VM files into one .asm output file.
+This project is a **complete VM Translator** for the **Nand2Tetris** course, implemented entirely in **a single C++ source file**. It translates **Virtual Machine (VM) commands** into **Hack assembly language**, enabling VM programs to run on the Hack computer.
 
-Features
+The translator supports **arithmetic/logical operations**, **memory access**, **program flow**, and **function call/return semantics**. It can process **a single `.vm` file or a directory containing multiple `.vm` files** and generates a single `.asm` output.
 
-Translates VM code into Hack assembly
+---
 
-Supports arithmetic and logical commands
-(add, sub, neg, eq, gt, lt, and, or, not)
+## 🚀 Features
 
-Supports memory access commands
-(push, pop)
+* Full VM-to-Hack assembly translation
+* Arithmetic & logical commands: `add`, `sub`, `neg`, `eq`, `gt`, `lt`, `and`, `or`, `not`
+* Memory access commands: `push`, `pop`
 
-Handles all required memory segments:
-constant, local, argument, this, that, temp, pointer, static
+  * Supported segments: `constant`, `local`, `argument`, `this`, `that`, `temp`, `pointer`, `static`
+* Program flow commands: `label`, `goto`, `if-goto`
+* Function commands: `function`, `call`, `return`
+* **Bootstrap code** support (`SP=256`, calls `Sys.init`) when translating directories
+* Static variables scoped per VM file
+* Single-file C++ implementation (parser + code writer in one `.cpp`)
 
-Supports program flow commands
-(label, goto, if-goto)
+---
 
-Implements function commands
-(function, call, return)
+## 🛠️ Technologies Used
 
-Generates bootstrap code (SP = 256) and calls Sys.init when a directory is given as input
+* **Language:** C++ (uses C++17 filesystem)
+* **Concepts:** Stack-based Virtual Machine, Assembly Code Generation, Compiler Design Basics
 
-Static variables are handled separately for each VM file
+---
 
-Technologies Used
+## 📂 Project Structure
 
-Language: C++ (C++17 standard)
-
-Key Concepts:
-Stack-based virtual machines, assembly code generation, function call handling
-
-Project Structure
+```
 VMTranslator/
-├── VMTranslator.cpp   // Main file containing parser and code writer
-├── tests/             // VM test files (optional)
+├── VMTranslator.cpp   // Contains main logic, parser, and code writer
+├── tests/             // VM test files (if any)
 └── README.md
+```
 
-How to Run
-Compile
+---
+
+## ▶️ How to Run
+
+### Compile
+
+```bash
 g++ -std=c++17 VMTranslator.cpp -o VMTranslator
+```
 
-Run
+### Execute
 
-For a single VM file:
+Translate a single VM file:
 
+```bash
 ./VMTranslator SimpleAdd.vm
+```
 
+Translate a directory containing multiple VM files:
 
-For a directory containing multiple VM files:
-
+```bash
 ./VMTranslator MemoryAccess/
+```
 
+* For a single file, output will be `FileName.asm`
+* For a directory, output will be `DirectoryName.asm`
 
-Single file input → FileName.asm
+---
 
-Directory input → DirectoryName.asm
+## 📘 Learning Outcomes
 
-What I Learned
+* Clear understanding of **VM command parsing and translation**
+* Hands-on experience with **stack-based execution models**
+* Practical implementation of **function call frames and control flow**
+* Improved proficiency in **C++ systems programming**
 
-How a stack-based virtual machine works
+---
 
-How VM commands are translated into low-level assembly instructions
+## 📖 References
 
-How function calls, returns, and stack frames are implemented
+* [Nand2Tetris Course](https://www.nand2tetris.org/)
+* *The Elements of Computing Systems* by Noam Nisan and Shimon Schocken
 
-Improved understanding of C++ and file handling
+---
 
-References
+## 🧑‍💻 Author
 
-Nand2Tetris official course material
+**Badugu Garima**
+C++ | Systems Programming | Computer Science Student
 
-The Elements of Computing Systems — Noam Nisan & Shimon Schocken
+---
 
-Author
+## 📄 License
 
-Badugu Garima
-Computer Science Student | C++ Programming
-
-License
-
-This project was developed for educational purposes as part of the Nand2Tetris course.
+This project is created for **educational purposes** as part of the Nand2Tetris course.
+can you make this lake a text not like Ai generated canva
